@@ -10,31 +10,35 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/**
+ * javaWebä¸‰å¤§ç»„ä»¶ï¼š
+ * servletç¨‹åºï¼Œå¤„ç†ç”¨æˆ·è¯·æ±‚
+ */
 public class BaseServlet extends HttpServlet {
 
 	public void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String methodName = request.getParameter("methodName");
 		if (methodName==null || methodName.equals("")) {
-			throw new RuntimeException("ÇëÇó²ÎÊımethodName²»ÄÜÎª¿Õ");
+			throw new RuntimeException("è¯·æ±‚å‚æ•°methodNameä¸èƒ½ä¸ºç©º");
 		}
 		Method method = null;
 		try {
 			method = this.getClass().getMethod(methodName, HttpServletRequest.class,HttpServletResponse.class);
 		} catch (NoSuchMethodException e) {
-			throw new RuntimeException("ÇëÇóµÄ·½·¨" + methodName + "²»´æÔÚ");
-		} 
+			throw new RuntimeException("è¯·æ±‚çš„æ–¹æ³•" + methodName + "ä¸å­˜åœ¨");
+		}
 		try {
-		     String result = (String)method.invoke(this, request,response);
-		     if (result.contains("f")) {
+			String result = (String)method.invoke(this, request,response);
+			if (result.contains("f")) {
 				request.getRequestDispatcher("/"+result.substring(result.indexOf(":")+1)).forward(request, response);
 			}else if(result.contains("s")){
 				response.sendRedirect(request.getContextPath() + "/" + result.substring(result.indexOf(":")+1));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-		} 
+		}
 	}
-	
+
 
 }

@@ -63,4 +63,5 @@
   	<error-code>404</error-code>
   	<location>/jsp/404.jsp</location>
   </error-page>
+  <listener><listener-class>com.bm.listener.ContextListenerTest</listener-class></listener>
 </web-app>

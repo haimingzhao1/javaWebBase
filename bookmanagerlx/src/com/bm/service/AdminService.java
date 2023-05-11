@@ -23,7 +23,7 @@ public class AdminService {
 			adminDao.addReaderInfo(reader, con);
 			Integer id = adminDao.getReaderIdByName(reader.getName(),con);
 			if (id==0) {
-				throw new RuntimeException("∂¡’ﬂÃÌº” ß∞‹£°");
+				throw new RuntimeException("ËØªËÄÖÊ∑ªÂä†Â§±Ë¥•ÔºÅ");
 			}
 			card.setReaderid(id);
 			adminDao.addReaderCard(card, con);
@@ -40,10 +40,10 @@ public class AdminService {
 		}
 	}
 	public List<ReaderInfo> getAllReaders() {
-       return adminDao.getAllReaders();
+		return adminDao.getAllReaders();
 	}
 	public ReaderInfo getReaderById(String readerId) {
-		
+
 		return adminDao.getReaderById(readerId);
 	}
 	public void editReader(ReaderInfo reader) {
@@ -70,7 +70,7 @@ public class AdminService {
 	public void addBook(BookInfo book) {
 		int result = adminDao.addBook(book);
 		if (result == 0) {
-			throw new RuntimeException("ÃÌº”Õº È ß∞‹");
+			throw new RuntimeException("Ê∑ªÂä†Âõæ‰π¶Â§±Ë¥•");
 		}
 	}
 	public void deleteReader(String parameter) {
@@ -90,7 +90,7 @@ public class AdminService {
 		}finally{
 			JdbcUtil.close(con, null, null);
 		}
-		
+
 	}
 	public Map<String,Object> bookDetail(Integer bookid) {
 		Connection con = JdbcUtil.getConnection();

@@ -26,7 +26,7 @@ background-attachment: fixed;">
             <input type="hidden" name="methodName" value="readerAdd"/>
                 <div class="input-group" style="padding-top: 20px;">
                     <span  class="input-group-addon">密码</span>
-                    <input  type="password" class="form-control" name="password" id="password" ">
+                    <input  type="password" class="form-control" name="password" id="password">
                 </div>
                 <div class="input-group" style="padding-top: 20px;">
                     <span class="input-group-addon">姓名</span>
