@@ -16,6 +16,7 @@ import com.bm.beans.ReaderCard;
 import com.bm.service.LoginService;
 
 public class LogonServlet extends HttpServlet {
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Admin admin = new Admin();
 		ReaderCard reader = new ReaderCard();
